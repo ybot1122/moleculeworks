@@ -1,12 +1,14 @@
 <template>
-     <input type="number" v-model.number="positiveNumber" @input="filterNonPositive">
+  <input type="number" v-model.number="positiveNumber" @input="filterNonPositive" v-on:change="onQuantityChange(positiveNumber)">
 </template>
 
 <script>
 export default {
   name: "QuantitySelector",
   components: {},
-  props: {},
+  props: {
+    onQuantityChange: Function,
+  },
   created: () => {},
   data: () => ({
     positiveNumber: 0

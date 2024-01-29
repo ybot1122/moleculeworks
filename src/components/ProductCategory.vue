@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-on:qs-change="count += 0.1">
     <h3 v-for="(str) in title" :key="str">{{str}}</h3>
     <h4 v-for="(str) in subtitle" :key="str">{{str}}</h4>
     <table>
@@ -18,7 +18,7 @@
         <td>{{ item.specification }}</td>
         <td>{{ item.partPrice }}</td>
         <td>
-          <QuantitySelector />
+          <QuantitySelector v-bind:onQuantityChange="onQuantityChange(item.no)"/>
         </td>
       </tr>
     </table>
@@ -36,10 +36,13 @@ export default {
   props: {
     title: Array,
     subtitle: Array,
-    items: Array
+    items: Array,
+    onQuantityChange: Function,
   },
   created: () => {},
-  data: () => ({})
+  data: () => ({
+    count: 0
+  }),
 };
 </script>
 <style scoped>

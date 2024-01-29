@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <ProductCategory
+      v-bind:onQuantityChange="consoleMe"
       v-bind:title="['MemXcel unit using transparent polycarbonate body']"
       v-bind:subtitle="['Model: MX-1-PC']"
       v-bind:items="[
@@ -57,6 +58,13 @@ export default {
   props: {
   },
   created: () => {},
-  data: () => ({})
+  data: () => ({}),
+  methods: {
+    consoleMe(itemNo) {
+      return (val) => {
+        console.log(itemNo + ': ' + val) // eslint-disable-line no-console
+      }
+    }
+  }
 };
 </script>
