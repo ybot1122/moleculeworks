@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h3>{{title}}</h3>
-    <h4>{{subtitle}}</h4>
+    <h3 v-for="(str, i) in title" :key="i">{{str}}</h3>
+    <h4 v-for="(str, i) in subtitle" :key="i">{{str}}</h4>
   </div>
 </template>
 
@@ -19,13 +19,13 @@ export default {
 </script>
 <style scoped>
 h3 {
-  text-align: center;
-  margin-top: 20px;
-  padding: 10px;
+  text-align: left;
+  margin-top: 0px;
+  padding: 0px;
   font-size: 24px;
 }
 
 h4 {
-  text-align: center;
+  text-align: left;
 }
 </style>
