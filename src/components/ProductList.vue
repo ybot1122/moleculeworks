@@ -3,6 +3,10 @@
     <ProductCategory
       v-bind:title="['MemXcel unit using transparent polycarbonate body']"
       v-bind:subtitle="['Model: MX-1-PC']"
+      v-bind:items="[
+        {no: 'MX-1-PC-kit', partName: 'Set', material: 'All the parts listed needed', specification: 'All the parts listed below, plus i) two porous Nickel membrane sheets, ii) two NaA zeolite/metal sheet zeolite membranes; iii) one additional inner and outer gaskets', partPrice: 699},
+        {no: 'MX-1-PC-1', partName: 'Front (feed) plate', material: 'Polycarbonate', specification: '80 mm x 140 mm x10mm', partPrice: 250}
+      ]"
     />
     <ProductCategory
       v-bind:title="['MemXcel unit using stainless-steel body']"

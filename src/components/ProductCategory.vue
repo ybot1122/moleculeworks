@@ -1,7 +1,23 @@
 <template>
   <div>
-    <h3 v-for="(str, i) in title" :key="i">{{str}}</h3>
-    <h4 v-for="(str, i) in subtitle" :key="i">{{str}}</h4>
+    <h3 v-for="(str) in title" :key="str">{{str}}</h3>
+    <h4 v-for="(str) in subtitle" :key="str">{{str}}</h4>
+    <table>
+      <tr>
+        <th>No</th>
+        <th>Part name</th>
+        <th>Material</th>
+        <th>Specification</th>
+        <th>Part price, $/each</th>
+      </tr>
+      <tr v-for="(item) in items" v-bind:key="item.no">
+        <td>{{ item.no }}</td>
+        <td>{{ item.partName }}</td>
+        <td>{{ item.material }}</td>
+        <td>{{ item.specification }}</td>
+        <td>{{ item.partPrice }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -10,8 +26,9 @@ export default {
   name: "ProductCategory",
   components: {},
   props: {
-    title: String,
-    subtitle: String
+    title: Array,
+    subtitle: Array,
+    items: Array
   },
   created: () => {},
   data: () => ({})
@@ -27,5 +44,11 @@ h3 {
 
 h4 {
   text-align: left;
+}
+
+td, th {
+  border: 1px black solid;
+  padding: 5px;
+  margin: 0px;
 }
 </style>
