@@ -39,6 +39,9 @@
     <div>
       Your current cart:
     </div>
+    <div>
+      Click here to proceed to checkout.
+    </div>
 </v-container>
 </template>
 

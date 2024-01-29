@@ -18,7 +18,7 @@
         <td>{{ item.specification }}</td>
         <td>{{ item.partPrice }}</td>
         <td>
-          <input type="number" />
+          <QuantitySelector />
         </td>
       </tr>
     </table>
@@ -26,9 +26,13 @@
 </template>
 
 <script>
+import QuantitySelector from './QuantitySelector'
+
 export default {
   name: "ProductCategory",
-  components: {},
+  components: {
+    QuantitySelector,
+  },
   props: {
     title: Array,
     subtitle: Array,
@@ -54,11 +58,5 @@ td, th {
   border: 1px black solid;
   padding: 5px;
   margin: 0px;
-}
-
-input {
-  width: 50px;
-  padding: 5px;
-  border: 1px black solid;
 }
 </style>
