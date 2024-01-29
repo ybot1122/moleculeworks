@@ -2,7 +2,6 @@
   <div>
     <Banner :title="config.title"></Banner>
     <h3>To order, <a href="https://drive.google.com/file/d/1-hcqJ3It213m8KYIYXKKB9LSVoGgOPP0/view?usp=sharing" target="_blank">fill out a form</a> and email to support@moleculeworks.com</h3>
-    <ProductList></ProductList>
     <v-container>
       <Tabs :options="config.options"
       :pricing=true
@@ -14,14 +13,12 @@
 <script>
 import Banner from '../components/Banner'
 import Tabs from '../components/Tabs'
-import ProductList from '../components/ProductList'
 import { MenuConfig } from '../config/MenuConfig'
 export default {
   name: "Contact",
   components: {
     Banner,
-    Tabs,
-    ProductList
+    Tabs
   },
   data: () => ({
     config: MenuConfig.items[3],
