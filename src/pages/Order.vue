@@ -2,10 +2,8 @@
   <div>
     <Banner :title="config.title"></Banner>
     <h3>To order, <a href="https://drive.google.com/file/d/1-hcqJ3It213m8KYIYXKKB9LSVoGgOPP0/view?usp=sharing" target="_blank">fill out a form</a> and email to support@moleculeworks.com</h3>
+    <ProductList></ProductList>
     <v-container>
-
-      <h3>MemXcel unit using transparent polycarbonate body</h3>
-      <h4>Model: MX-1-PC</h4>
       <table>
         <tr>
           <th>No</th>
@@ -40,12 +38,14 @@
 <script>
 import Banner from '../components/Banner'
 import Tabs from '../components/Tabs'
+import ProductList from '../components/ProductList'
 import { MenuConfig } from '../config/MenuConfig'
 export default {
   name: "Contact",
   components: {
     Banner,
-    Tabs
+    Tabs,
+    ProductList
   },
   data: () => ({
     config: MenuConfig.items[3],
