@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <ProductCategory
+      v-bind:onQuantityChange="updateCart"
       v-bind:title="['MemXcel unit using transparent polycarbonate body']"
       v-bind:subtitle="['Model: MX-1-PC']"
       v-bind:items="[
@@ -36,8 +37,8 @@
     <ProductCategory
       v-bind:title="['Part list for Membrane Encapsulated Planar Adsorbent (MEPA) plate']"
     />
-    <div>
-      Your current cart:
+    <div id="cart">
+      Your current cart: {{ cart }}
     </div>
     <div>
       Click here to proceed to checkout.
@@ -57,6 +58,18 @@ export default {
   props: {
   },
   created: () => {},
-  data: () => ({})
+  data: () => ({
+    cart: {}
+  }),
+  methods: {
+    updateCart(itemNo) {
+      return (val) => {
+        console.log(itemNo + ': ' + val) // eslint-disable-line no-console
+        this.$set(this.cart, itemNo, val)
+      }
+    }
+  }
 };
 </script>
+<style scoped>
+</style>
