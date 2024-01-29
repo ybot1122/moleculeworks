@@ -5,6 +5,7 @@ Built using [Vue.js](https://vuejs.org/) and [Vuetify](https://vuetifyjs.com/en/
 ## Project setup
 ### Pre-reqs
 - [vue-cli](https://cli.vuejs.org/guide/installation.html)
+- netlify cli
 ```
 npm install -g @vue/cli
 
