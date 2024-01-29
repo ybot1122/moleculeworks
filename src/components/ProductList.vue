@@ -36,6 +36,12 @@
     <ProductCategory
       v-bind:title="['Part list for Membrane Encapsulated Planar Adsorbent (MEPA) plate']"
     />
+    <div>
+      Your current cart:
+    </div>
+    <div>
+      Click here to proceed to checkout.
+    </div>
 </v-container>
 </template>
 

@@ -9,6 +9,7 @@
         <th>Material</th>
         <th>Specification</th>
         <th>Part price, $/each</th>
+        <th>Quantity</th>
       </tr>
       <tr v-for="(item) in items" v-bind:key="item.no">
         <td>{{ item.no }}</td>
@@ -16,15 +17,22 @@
         <td>{{ item.material }}</td>
         <td>{{ item.specification }}</td>
         <td>{{ item.partPrice }}</td>
+        <td>
+          <QuantitySelector />
+        </td>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
+import QuantitySelector from './QuantitySelector'
+
 export default {
   name: "ProductCategory",
-  components: {},
+  components: {
+    QuantitySelector,
+  },
   props: {
     title: Array,
     subtitle: Array,
