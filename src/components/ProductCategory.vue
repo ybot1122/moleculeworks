@@ -9,6 +9,7 @@
         <th>Material</th>
         <th>Specification</th>
         <th>Part price, $/each</th>
+        <th>Quantity</th>
       </tr>
       <tr v-for="(item) in items" v-bind:key="item.no">
         <td>{{ item.no }}</td>
@@ -16,6 +17,9 @@
         <td>{{ item.material }}</td>
         <td>{{ item.specification }}</td>
         <td>{{ item.partPrice }}</td>
+        <td>
+          <input type="number" />
+        </td>
       </tr>
     </table>
   </div>
@@ -50,5 +54,11 @@ td, th {
   border: 1px black solid;
   padding: 5px;
   margin: 0px;
+}
+
+input {
+  width: 50px;
+  padding: 5px;
+  border: 1px black solid;
 }
 </style>

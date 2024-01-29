@@ -4,11 +4,13 @@ const YOUR_DOMAIN = 'https://moleculeworks.com/';
 
 export default async (req, context) => {
 
+  const q1 = new URL(req.url).searchParams.get('q1')
+
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
         price: 'price_1Odh8QKVWxESeTWrzztr10Yz',
-        quantity: 1,
+        quantity: q1,
       },
     ],
     mode: 'payment',

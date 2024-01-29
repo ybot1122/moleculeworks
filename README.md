@@ -3,6 +3,13 @@
 Built using [Vue.js](https://vuejs.org/) and [Vuetify](https://vuetifyjs.com/en/getting-started/quick-start)
 
 ## Project setup
+
+Add a `.env` file to root, with Stripe secret key:
+
+```
+STRIPE_SECRET=xxxxxx
+```
+
 ### Pre-reqs
 - [vue-cli](https://cli.vuejs.org/guide/installation.html)
 - netlify cli
