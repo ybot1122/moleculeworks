@@ -41,7 +41,7 @@
       Your current cart: {{ cart }}
     </div>
     <div>
-      Click here to proceed to checkout.
+      <button id="checkout" @click="startCheckout" :disabled="isCartEmpty">Click here to proceed to checkout.</button>
     </div>
 </v-container>
 </template>
@@ -64,12 +64,36 @@ export default {
   methods: {
     updateCart(itemNo) {
       return (val) => {
-        console.log(itemNo + ': ' + val) // eslint-disable-line no-console
-        this.$set(this.cart, itemNo, val)
+        if (val > 0) {
+          this.$set(this.cart, itemNo, val)
+        } else {
+          this.$delete(this.cart, itemNo)
+        }
       }
+    },
+
+    async startCheckout() {
+      const stripeUrl = await fetch('/.netlify/functions/hello?q1=3');
+      console.log(stripeUrl) // eslint-disable-line no-console
+    },
+
+  },
+  computed: {
+    isCartEmpty() {
+      return Object.keys(this.cart).length === 0 && this.cart.constructor === Object
     }
   }
 };
 </script>
 <style scoped>
+#checkout {
+  border: 1px black solid;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+}
+
+#checkout:not(:disabled):hover {
+  border-width: 3px;
+}
 </style>
