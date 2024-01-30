@@ -87,7 +87,8 @@ export default {
 
       const response = await fetch('/.netlify/functions/hello?' + params.toString());
       const stripeUrl = await response.text();
-      console.log(stripeUrl) // eslint-disable-line no-console
+
+      window.location.href = stripeUrl;
     },
 
   },
