@@ -59,7 +59,11 @@ export default {
   },
   created: () => {},
   data: () => ({
-    cart: {}
+    cart: {},
+    itemNoToApiKey: {
+      'MX-1-PC-1': 'price_1Odn8HKVWxESeTWrChhwh8P6',
+      'MX-1-PC-kit': 'price_1Odn7XKVWxESeTWrSoPdOGlw',
+    }
   }),
   methods: {
     updateCart(itemNo) {
@@ -73,7 +77,16 @@ export default {
     },
 
     async startCheckout() {
-      const stripeUrl = await fetch('/.netlify/functions/hello?q1=3');
+      const mapped = {}
+
+      for (const [key, value] of Object.entries(this.cart)) {
+        mapped[this.itemNoToApiKey[key]] = value;
+      }
+
+      const params = new URLSearchParams(mapped);
+
+      const response = await fetch('/.netlify/functions/hello?' + params.toString());
+      const stripeUrl = await response.text();
       console.log(stripeUrl) // eslint-disable-line no-console
     },
 
