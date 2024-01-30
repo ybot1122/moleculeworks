@@ -41,7 +41,7 @@
       Your current cart: {{ cart }}
     </div>
     <div>
-      Click here to proceed to checkout.
+      <button id="checkout" @click="startCheckout" :disabled="isCartEmpty">Click here to proceed to checkout.</button>
     </div>
 </v-container>
 </template>
@@ -59,17 +59,55 @@ export default {
   },
   created: () => {},
   data: () => ({
-    cart: {}
+    cart: {},
+    itemNoToApiKey: {
+      'MX-1-PC-1': 'price_1Odn8HKVWxESeTWrChhwh8P6',
+      'MX-1-PC-kit': 'price_1Odn7XKVWxESeTWrSoPdOGlw',
+    }
   }),
   methods: {
     updateCart(itemNo) {
       return (val) => {
-        console.log(itemNo + ': ' + val) // eslint-disable-line no-console
-        this.$set(this.cart, itemNo, val)
+        if (val > 0) {
+          this.$set(this.cart, itemNo, val)
+        } else {
+          this.$delete(this.cart, itemNo)
+        }
       }
+    },
+
+    async startCheckout() {
+      const mapped = {}
+
+      for (const [key, value] of Object.entries(this.cart)) {
+        mapped[this.itemNoToApiKey[key]] = value;
+      }
+
+      const params = new URLSearchParams(mapped);
+
+      const response = await fetch('/.netlify/functions/hello?' + params.toString());
+      const stripeUrl = await response.text();
+
+      window.location.href = stripeUrl;
+    },
+
+  },
+  computed: {
+    isCartEmpty() {
+      return Object.keys(this.cart).length === 0 && this.cart.constructor === Object
     }
   }
 };
 </script>
 <style scoped>
+#checkout {
+  border: 1px black solid;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+}
+
+#checkout:not(:disabled):hover {
+  border-width: 3px;
+}
 </style>
