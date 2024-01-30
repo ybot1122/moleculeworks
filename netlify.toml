@@ -2,5 +2,5 @@
   # Specifies `esbuild` for functions bundling
   node_bundler = "esbuild"
 [[redirects]]
-  from = "/*"
-  to = "/"
+  from = "/orderForm"
+  to = "/index.html"
