@@ -14,7 +14,7 @@ STRIPE_SECRET=xxxxxx
 - [vue-cli](https://cli.vuejs.org/guide/installation.html)
 - netlify cli
 ```
-npm install -g @vue/cli
+npm install -g @vue/cli netlify
 
 ### Install dependencies
 ```
@@ -23,7 +23,7 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+netlify dev
 ```
 
 ### Compiles and minifies for production
