@@ -15,6 +15,18 @@ STRIPE_SECRET=xxxxxx
 - netlify cli
 ```
 npm install -g @vue/cli netlify
+```
+
+In powershell, run this:
+
+```
+$env:NODE_OPTIONS = "--openssl-legacy-provider"
+```
+
+Then run 
+```
+netlify dev
+```
 
 ### Install dependencies
 ```
